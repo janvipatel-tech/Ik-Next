@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_credibilities",
+  "info": { "displayName": "Credibility", "icon": "shield" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "text" },
+    "logos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.logo-item"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.stat-item"
+    },
+    "design": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.design"
+    }
+  }
+}

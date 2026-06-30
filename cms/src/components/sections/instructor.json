@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_instructors",
+  "info": { "displayName": "Instructor", "icon": "user" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "name": { "type": "string", "required": true },
+    "title": { "type": "string" },
+    "bio": { "type": "text" },
+    "imageUrl": { "type": "string" },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.list-item"
+    },
+    "design": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.design"
+    }
+  }
+}

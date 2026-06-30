@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_sections_feature_items",
+  "info": { "displayName": "Feature Item", "icon": "bulletList" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" }
+  }
+}

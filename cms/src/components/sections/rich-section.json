@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_rich_sections",
+  "info": { "displayName": "Rich Section", "icon": "paragraph" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "text" },
+    "body": { "type": "text" },
+    "design": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.design"
+    }
+  }
+}

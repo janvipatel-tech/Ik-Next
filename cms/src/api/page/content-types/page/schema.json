@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": "CMS-driven landing pages rendered by a frontend template"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "template": {
+      "type": "enumeration",
+      "enum": ["talent-500"],
+      "default": "talent-500",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "whyAttend": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.feature-list"
+    },
+    "instructor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.instructor"
+    },
+    "credibility": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.credibility"
+    },
+    "ikEdge": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.feature-list"
+    },
+    "testimonials": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.testimonials"
+    },
+    "audience": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.rich-section"
+    },
+    "marketShift": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.feature-list"
+    },
+    "finalCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.cta-banner"
+    }
+  }
+}

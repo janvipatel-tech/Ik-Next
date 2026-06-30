@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_sections_event_items",
+  "info": { "displayName": "Event Item", "icon": "calendar" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "time": { "type": "string" }
+  }
+}

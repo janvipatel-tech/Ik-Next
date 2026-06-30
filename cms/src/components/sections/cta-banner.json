@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_cta_banners",
+  "info": { "displayName": "CTA Banner", "icon": "cursor" },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "text", "required": true },
+    "subheading": { "type": "text" },
+    "ctaLabel": { "type": "string" },
+    "ctaUrl": { "type": "string" },
+    "design": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.design"
+    }
+  }
+}

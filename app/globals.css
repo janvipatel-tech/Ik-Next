@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-ink-900 antialiased;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white shadow-soft hover:bg-brand-600 hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn border border-white/20 text-white hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply btn border border-ink-900/15 text-ink-900 hover:border-brand hover:text-brand;
+  }
+  .section {
+    @apply py-20 sm:py-24;
+  }
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-brand;
+  }
+  .field {
+    @apply w-full rounded-xl border border-ink-900/15 bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors placeholder:text-ink-700/40 focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+}
+
+/* sticky header gets a shadow once scrolled (toggled via jQuery) */
+#site-header.is-stuck {
+  @apply shadow-soft;
+}
+
+/* scroll-reveal: elements start hidden, jQuery adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* mobile nav toggle open state */
+[data-nav-toggle].is-open {
+  @apply border-brand text-brand;
+}
+
+/* gradient mesh used in hero / CTA blocks */
+.mesh {
+  background:
+    radial-gradient(60% 60% at 12% 10%, rgba(91, 52, 234, 0.45) 0%, transparent 60%),
+    radial-gradient(55% 55% at 88% 18%, rgba(25, 195, 166, 0.35) 0%, transparent 55%),
+    radial-gradient(70% 70% at 70% 90%, rgba(91, 52, 234, 0.30) 0%, transparent 60%),
+    #0c1024;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

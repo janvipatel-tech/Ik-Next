@@ -1,0 +1,197 @@
+{
+  "template": "talent-500",
+  "label": "Talent500 Event Landing Page",
+  "previewBase": "http://localhost:3000",
+  "description": "Webinar/masterclass landing page: hero, why-attend, instructor, credibility, IK edge, testimonials, audience, market shift, final CTA.",
+  "page": {
+    "title": { "type": "string", "required": true, "guide": "Internal + <title> base. e.g. 'System Design Masterclass — IK'" },
+    "slug": { "type": "uid", "required": true, "from": "title", "guide": "URL path segment, kebab-case, unique. e.g. 'system-design-masterclass'" },
+    "template": { "type": "const", "value": "talent-500" }
+  },
+  "seo": {
+    "component": "shared.seo",
+    "fields": {
+      "metaTitle": { "type": "string", "guide": "≤60 chars, benefit + brand" },
+      "metaDescription": { "type": "text", "guide": "≤155 chars, compelling summary with a CTA" },
+      "keywords": { "type": "string", "guide": "Comma-separated, 4–6 terms" },
+      "canonicalURL": { "type": "string", "guide": "Full canonical URL" },
+      "metaImageUrl": { "type": "string", "image": true, "guide": "OG share image URL (uploadable)" }
+    }
+  },
+  "design": {
+    "note": "Every section takes an optional `design` object.",
+    "fields": {
+      "theme": { "type": "enum", "enum": ["light", "muted", "dark", "brand"], "default": "light" },
+      "accentColor": { "type": "string", "default": "#5b34ea", "guide": "Hex; brand purple #5b34ea or teal #19c3a6" },
+      "align": { "type": "enum", "enum": ["left", "center"], "default": "center" },
+      "paddingY": { "type": "enum", "enum": ["sm", "md", "lg"], "default": "lg" }
+    }
+  },
+  "sections": [
+    {
+      "key": "hero",
+      "component": "sections.hero",
+      "label": "Hero",
+      "fields": {
+        "badge": { "type": "string", "guide": "Short eyebrow, e.g. 'Free Live Masterclass'" },
+        "heading": { "type": "text", "required": true, "guide": "≤12 words, benefit-driven headline" },
+        "subheading": { "type": "text", "guide": "1–2 sentence supporting line" },
+        "primaryCtaLabel": { "type": "string", "guide": "e.g. 'Reserve Your Free Spot'" },
+        "primaryCtaUrl": { "type": "string", "default": "#register" },
+        "secondaryCtaLabel": { "type": "string" },
+        "secondaryCtaUrl": { "type": "string", "default": "#register" },
+        "events": {
+          "type": "repeatable", "component": "sections.event-item",
+          "guide": "Session dates/times",
+          "item": {
+            "label": { "type": "string", "required": true, "guide": "e.g. 'April 19th'" },
+            "time": { "type": "string", "guide": "e.g. '11 AM IST'" }
+          }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "whyAttend",
+      "component": "sections.feature-list",
+      "label": "Why Attend (feature grid)",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "Why Attend" },
+        "heading": { "type": "text", "guide": "Section headline" },
+        "subheading": { "type": "text" },
+        "items": {
+          "type": "repeatable", "component": "sections.feature-item",
+          "guide": "3 or 4 benefits (grid auto-fits 3/4 columns)",
+          "item": {
+            "icon": { "type": "string", "guide": "Single emoji" },
+            "title": { "type": "string", "required": true },
+            "description": { "type": "text" }
+          }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "instructor",
+      "component": "sections.instructor",
+      "label": "Instructor / Host",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "Your Host" },
+        "name": { "type": "string", "required": true },
+        "title": { "type": "string", "guide": "Role / credentials" },
+        "bio": { "type": "text", "guide": "2–3 sentences" },
+        "imageUrl": { "type": "string", "image": true, "guide": "Portrait URL (uploadable). Omit to render initials." },
+        "highlights": {
+          "type": "repeatable", "component": "sections.list-item",
+          "guide": "3 credibility bullets",
+          "item": { "text": { "type": "string", "required": true } }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "credibility",
+      "component": "sections.credibility",
+      "label": "Credibility (logos + stats)",
+      "fields": {
+        "eyebrow": { "type": "string" },
+        "heading": { "type": "text" },
+        "logos": {
+          "type": "repeatable", "component": "sections.logo-item",
+          "guide": "Company names rendered as text",
+          "item": { "name": { "type": "string", "required": true } }
+        },
+        "stats": {
+          "type": "repeatable", "component": "sections.stat-item",
+          "guide": "4 headline numbers",
+          "item": {
+            "value": { "type": "string", "required": true, "guide": "e.g. '25K+'" },
+            "label": { "type": "string", "guide": "e.g. 'students placed'" }
+          }
+        },
+        "design": { "ref": "design", "guide": "Often theme:dark" }
+      }
+    },
+    {
+      "key": "ikEdge",
+      "component": "sections.feature-list",
+      "label": "The IK Edge (feature grid)",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "The IK Edge" },
+        "heading": { "type": "text" },
+        "subheading": { "type": "text" },
+        "items": {
+          "type": "repeatable", "component": "sections.feature-item",
+          "item": {
+            "icon": { "type": "string", "guide": "Single emoji" },
+            "title": { "type": "string", "required": true },
+            "description": { "type": "text" }
+          }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "testimonials",
+      "component": "sections.testimonials",
+      "label": "Testimonials",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "Alumni Stories" },
+        "heading": { "type": "text" },
+        "items": {
+          "type": "repeatable", "component": "sections.testimonial-item",
+          "guide": "2–4 quotes",
+          "item": {
+            "quote": { "type": "text", "required": true },
+            "name": { "type": "string", "required": true },
+            "role": { "type": "string" },
+            "company": { "type": "string" }
+          }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "audience",
+      "component": "sections.rich-section",
+      "label": "Who should sign up (free text)",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "Who's this for?" },
+        "heading": { "type": "text" },
+        "body": { "type": "text", "guide": "Newline-separated paragraphs; each line renders as a <p>" },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "marketShift",
+      "component": "sections.feature-list",
+      "label": "Market Shift (feature grid)",
+      "fields": {
+        "eyebrow": { "type": "string", "default": "Market Shift" },
+        "heading": { "type": "text" },
+        "subheading": { "type": "text" },
+        "items": {
+          "type": "repeatable", "component": "sections.feature-item",
+          "item": {
+            "icon": { "type": "string", "guide": "Single emoji" },
+            "title": { "type": "string", "required": true },
+            "description": { "type": "text" }
+          }
+        },
+        "design": { "ref": "design" }
+      }
+    },
+    {
+      "key": "finalCta",
+      "component": "sections.cta-banner",
+      "label": "Final CTA banner",
+      "fields": {
+        "heading": { "type": "text", "required": true },
+        "subheading": { "type": "text" },
+        "ctaLabel": { "type": "string" },
+        "ctaUrl": { "type": "string", "default": "#register" },
+        "design": { "ref": "design", "guide": "Often theme:brand" }
+      }
+    }
+  ]
+}
